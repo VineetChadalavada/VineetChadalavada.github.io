@@ -1,7 +1,218 @@
-/* Fade-in Animation */
+/* === Base Setup === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #ffffff;
+  color: #222;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* === Navbar === */
+nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+nav .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1100px;
+  margin: auto;
+  padding: 12px 20px;
+}
+
+.logo {
+  font-weight: 600;
+  font-size: 1.4rem;
+  color: #007a7a;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #007a7a;
+}
+
+/* === Hero Section === */
+#hero {
+  text-align: center;
+  padding: 130px 20px 80px;
+  background: linear-gradient(to bottom, #f9fdfd 0%, #ffffff 100%);
+}
+
+#hero h1 {
+  font-size: 2.5rem;
+  color: #004f4f;
+  margin-bottom: 10px;
+}
+
+#hero h2 {
+  font-weight: 400;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.links a {
+  margin: 0 10px;
+  color: #007a7a;
+  font-weight: 500;
+  text-decoration: none;
+  border: 1px solid #007a7a;
+  padding: 6px 14px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.links a:hover {
+  background-color: #007a7a;
+  color: #fff;
+}
+
+/* === Section Content === */
+.content {
+  max-width: 950px;
+  margin: 80px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.content h2 {
+  font-size: 1.8rem;
+  color: #004f4f;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.content h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #00a0a0;
+  margin: 10px auto;
+  border-radius: 2px;
+}
+
+/* === Cards === */
+.education-card,
+.project-card,
+.experience-list > div {
+  background: #f8fafa;
+  border-radius: 12px;
+  margin: 15px 0;
+  padding: 20px;
+  text-align: left;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.education-card:hover,
+.project-card:hover,
+.experience-list > div:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0, 128, 128, 0.15);
+}
+
+/* === Skills Grid === */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.skill-box {
+  background-color: #f4f9f9;
+  border: 1px solid #cde;
+  border-radius: 10px;
+  text-align: center;
+  padding: 10px;
+  font-weight: 500;
+  color: #004f4f;
+  box-shadow: 0 2px 6px rgba(0, 128, 128, 0.08);
+  transition: all 0.3s ease;
+}
+
+.skill-box:hover {
+  background-color: #e0f7f7;
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 128, 128, 0.2);
+}
+
+/* === Contact Section === */
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin: 0 auto;
+  gap: 12px;
+}
+
+input, textarea, button {
+  font-family: "Poppins", sans-serif;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+textarea {
+  resize: none;
+  height: 120px;
+}
+
+button {
+  background-color: #007a7a;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #005f5f;
+}
+
+/* === Footer === */
+footer {
+  text-align: center;
+  padding: 30px;
+  color: #666;
+  background: #f8fafa;
+  font-size: 0.9rem;
+  border-top: 1px solid #eee;
+}
+
+/* === Animations & Scroll Effects === */
 .content, #hero {
   opacity: 0;
-  transform: translateY(30px);
+  transform: translateY(40px);
   transition: all 0.8s ease;
 }
 
@@ -10,38 +221,29 @@
   transform: translateY(0);
 }
 
-/* Active Link Highlight */
-#hero .links a.active {
-  color: #004f4f;
-  border-bottom: 2px solid #007a7a;
-  padding-bottom: 2px;
-}
-
-/* Scroll-to-Top Button */
+/* === Scroll-to-top Button === */
 #scrollTopBtn {
   position: fixed;
-  bottom: 40px;
-  right: 40px;
-  background-color: #007a7a;
+  bottom: 35px;
+  right: 35px;
+  background: #007a7a;
   color: white;
   border: none;
   border-radius: 50%;
   width: 45px;
   height: 45px;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   cursor: pointer;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.4s ease, transform 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.4s ease;
 }
 
 #scrollTopBtn.show {
   opacity: 1;
   pointer-events: all;
-  transform: translateY(0);
 }
 
 #scrollTopBtn:hover {
-  background-color: #005f5f;
+  background: #005f5f;
 }
