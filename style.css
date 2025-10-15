@@ -1,96 +1,67 @@
-:root {
-  --accent: #00bfa6;
-  --bg: #0b0c10;
-  --text: #f3f4f6;
-  --card-bg: rgba(255, 255, 255, 0.05);
-  --shadow: rgba(0, 0, 0, 0.4);
-}
-
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Inter', sans-serif;
   margin: 0;
-  background: var(--bg);
-  color: var(--text);
+  background-color: #ffffff;
+  color: #222;
+  line-height: 1.6;
   scroll-behavior: smooth;
-  transition: background 0.5s, color 0.5s;
 }
 
-/* HERO */
 #hero {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 90vh;
-  background: linear-gradient(135deg, #1b263b, #0b0c10);
+  text-align: center;
+  padding: 80px 20px;
+  background-color: #f9fafc;
 }
 
-.hero-content {
-  display: flex;
-  align-items: center;
-  gap: 3rem;
-  max-width: 1000px;
-  flex-wrap: wrap;
-}
-
-.hero-photo img {
-  width: 200px;
-  height: 200px;
+.profile-pic {
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
-  border: 3px solid var(--accent);
   object-fit: cover;
-  box-shadow: 0 0 20px var(--accent);
+  border: 3px solid #008080;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-.hero-text {
-  max-width: 500px;
-}
-
-.hero-text h1 {
-  font-size: 2.8em;
-  margin: 0;
-  color: var(--accent);
+#hero h1 {
+  margin: 20px 0 10px;
+  font-size: 2.2em;
+  color: #006d6d;
 }
 
 .tagline {
-  margin-top: 0.5rem;
   font-weight: 400;
-  opacity: 0.85;
+  color: #555;
+  margin-bottom: 20px;
 }
 
-.social-links a {
-  color: var(--accent);
-  margin: 0 8px;
-  font-size: 1.5em;
-  transition: 0.3s;
+.links a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #007a7a;
+  font-weight: 500;
 }
 
-.social-links a:hover {
-  color: white;
+.links a:hover {
+  color: #004f4f;
 }
 
-#theme-toggle {
-  background: var(--accent);
-  border: none;
-  padding: 8px 10px;
-  border-radius: 50%;
-  cursor: pointer;
-  margin-top: 15px;
-  font-size: 1.1em;
-}
-
-/* SECTIONS */
-section {
-  padding: 60px 10%;
+.content {
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 0 20px;
 }
 
 h2 {
-  color: var(--accent);
-  border-bottom: 2px solid var(--accent);
+  color: #004f4f;
+  border-bottom: 2px solid #007a7a;
   display: inline-block;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
-/* PROJECT CARDS */
+ul li {
+  margin-bottom: 10px;
+}
+
 .project-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -98,92 +69,52 @@ h2 {
 }
 
 .project-card {
-  background: var(--card-bg);
-  backdrop-filter: blur(12px);
-  border-radius: 12px;
+  background-color: #f5f7fa;
   padding: 20px;
-  box-shadow: 0 4px 12px var(--shadow);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
 }
 
 .project-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 8px 24px var(--accent);
+  transform: translateY(-5px);
 }
 
-/* TIMELINE */
-.timeline {
-  border-left: 3px solid var(--accent);
-  padding-left: 20px;
-}
-
-.timeline-item {
+.experience-list div {
   margin-bottom: 25px;
-  position: relative;
 }
 
-.timeline-item::before {
-  content: "";
-  width: 14px;
-  height: 14px;
-  background: var(--accent);
-  border-radius: 50%;
-  position: absolute;
-  left: -9px;
-  top: 5px;
-}
-
-/* EDUCATION CARDS */
-.edu-cards {
+.contact-form {
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
+  flex-direction: column;
+  gap: 15px;
 }
 
-.edu-card {
-  flex: 1 1 250px;
-  background: var(--card-bg);
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 4px 10px var(--shadow);
+.contact-form input, .contact-form textarea {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-family: inherit;
 }
 
-/* CONTACT */
-.contact-icons a {
-  font-size: 2em;
-  color: var(--accent);
-  margin: 0 15px;
-  transition: 0.3s;
-}
-
-.contact-icons a:hover {
+.contact-form button {
+  background-color: #007a7a;
   color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
-/* FADE IN */
-.fade-in {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s ease;
-}
-
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* LIGHT MODE */
-body.light {
-  --bg: #f3f4f6;
-  --text: #1b263b;
-  --card-bg: rgba(0, 0, 0, 0.05);
-  --shadow: rgba(0, 0, 0, 0.2);
+.contact-form button:hover {
+  background-color: #005f5f;
 }
 
 footer {
   text-align: center;
   padding: 30px 0;
-  background: #111;
-  color: var(--text);
   font-size: 0.9em;
+  color: #555;
+  background-color: #f9fafc;
 }
