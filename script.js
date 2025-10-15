@@ -1,16 +1,31 @@
+// Fade-in animation on scroll
 document.addEventListener("DOMContentLoaded", () => {
-  const fadeElements = document.querySelectorAll(".fade-in");
+  const fadeEls = document.querySelectorAll(".fade-in");
 
-  const appearOnScroll = new IntersectionObserver(
+  const appear = new IntersectionObserver(
     (entries, observer) => {
       entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add("visible");
-        observer.unobserve(entry.target);
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
       });
     },
-    { threshold: 0.15 }
+    { threshold: 0.2 }
   );
 
-  fadeElements.forEach(el => appearOnScroll.observe(el));
+  fadeEls.forEach(el => appear.observe(el));
+
+  // Dark/Light Mode Toggle
+  const toggle = document.getElementById("theme-toggle");
+  const body = document.body;
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "light") body.classList.add("light");
+
+  toggle.addEventListener("click", () => {
+    body.classList.toggle("light");
+    const theme = body.classList.contains("light") ? "light" : "dark";
+    localStorage.setItem("theme", theme);
+    toggle.textContent = theme === "light" ? "☀️" : "🌙";
+  });
 });
