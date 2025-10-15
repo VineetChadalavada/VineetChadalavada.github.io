@@ -118,3 +118,23 @@ footer {
   color: #555;
   background-color: #f9fafc;
 }
+
+/* Smooth fade-in */
+.content, #hero {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Highlight active section link */
+#hero .links a.active {
+  color: #004f4f;
+  font-weight: 600;
+  border-bottom: 2px solid #007a7a;
+  padding-bottom: 2px;
+}
