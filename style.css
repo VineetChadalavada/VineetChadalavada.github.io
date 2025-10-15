@@ -18,7 +18,7 @@ body {
   height: 150px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid #008080;
+  border: 3px solid #007a7a;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
@@ -39,6 +39,7 @@ body {
   text-decoration: none;
   color: #007a7a;
   font-weight: 500;
+  transition: 0.3s;
 }
 
 .links a:hover {
@@ -49,6 +50,14 @@ body {
   max-width: 800px;
   margin: 60px auto;
   padding: 0 20px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.content.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 h2 {
@@ -90,7 +99,8 @@ ul li {
   gap: 15px;
 }
 
-.contact-form input, .contact-form textarea {
+.contact-form input,
+.contact-form textarea {
   padding: 12px;
   border-radius: 8px;
   border: 1px solid #ccc;
@@ -117,24 +127,4 @@ footer {
   font-size: 0.9em;
   color: #555;
   background-color: #f9fafc;
-}
-
-/* Smooth fade-in */
-.content, #hero {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Highlight active section link */
-#hero .links a.active {
-  color: #004f4f;
-  font-weight: 600;
-  border-bottom: 2px solid #007a7a;
-  padding-bottom: 2px;
 }
