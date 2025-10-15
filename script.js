@@ -1,9 +1,8 @@
-// Fade-in animation on scroll
+// Smooth section fade-in on scroll
 document.addEventListener("DOMContentLoaded", () => {
-  const fadeEls = document.querySelectorAll(".fade-in");
-
-  const appear = new IntersectionObserver(
-    (entries, observer) => {
+  const sections = document.querySelectorAll(".content, #hero");
+  const observer = new IntersectionObserver(
+    entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add("visible");
@@ -11,21 +10,25 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     },
-    { threshold: 0.2 }
+    { threshold: 0.15 }
   );
 
-  fadeEls.forEach(el => appear.observe(el));
+  sections.forEach(sec => observer.observe(sec));
 
-  // Dark/Light Mode Toggle
-  const toggle = document.getElementById("theme-toggle");
-  const body = document.body;
-  const savedTheme = localStorage.getItem("theme");
-  if (savedTheme === "light") body.classList.add("light");
+  // Highlight active link while scrolling
+  const navLinks = document.querySelectorAll("#hero .links a");
+  window.addEventListener("scroll", () => {
+    let current = "";
+    document.querySelectorAll("section").forEach(section => {
+      const sectionTop = section.offsetTop - 80;
+      if (pageYOffset >= sectionTop) current = section.getAttribute("id");
+    });
 
-  toggle.addEventListener("click", () => {
-    body.classList.toggle("light");
-    const theme = body.classList.contains("light") ? "light" : "dark";
-    localStorage.setItem("theme", theme);
-    toggle.textContent = theme === "light" ? "☀️" : "🌙";
+    navLinks.forEach(link => {
+      link.classList.remove("active");
+      if (link.getAttribute("href") === `#${current}`) {
+        link.classList.add("active");
+      }
+    });
   });
 });
