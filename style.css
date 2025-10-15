@@ -1,91 +1,96 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
+:root {
+  --accent: #00bfa6;
+  --bg: #0b0c10;
+  --text: #f3f4f6;
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --shadow: rgba(0, 0, 0, 0.4);
 }
 
 body {
   font-family: 'Poppins', sans-serif;
-  background: #f7f9fc;
-  color: #222;
-  line-height: 1.6;
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  scroll-behavior: smooth;
+  transition: background 0.5s, color 0.5s;
 }
 
+/* HERO */
 #hero {
-  background: linear-gradient(135deg, #14213d, #1b263b);
-  color: white;
   display: flex;
-  align-items: center;
   justify-content: center;
-  min-height: 90vh;
-  text-align: center;
-}
-
-.hero-container {
-  max-width: 900px;
-  display: flex;
-  flex-direction: column;
   align-items: center;
+  min-height: 90vh;
+  background: linear-gradient(135deg, #1b263b, #0b0c10);
 }
 
-.profile-pic {
-  width: 160px;
-  height: 160px;
+.hero-content {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  max-width: 1000px;
+  flex-wrap: wrap;
+}
+
+.hero-photo img {
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
+  border: 3px solid var(--accent);
   object-fit: cover;
-  border: 3px solid #fca311;
-  margin-bottom: 20px;
+  box-shadow: 0 0 20px var(--accent);
+}
+
+.hero-text {
+  max-width: 500px;
 }
 
 .hero-text h1 {
-  font-size: 2.5em;
-  margin-bottom: 10px;
+  font-size: 2.8em;
+  margin: 0;
+  color: var(--accent);
 }
 
 .tagline {
-  color: #e0e1dd;
+  margin-top: 0.5rem;
+  font-weight: 400;
+  opacity: 0.85;
+}
+
+.social-links a {
+  color: var(--accent);
+  margin: 0 8px;
+  font-size: 1.5em;
+  transition: 0.3s;
+}
+
+.social-links a:hover {
+  color: white;
+}
+
+#theme-toggle {
+  background: var(--accent);
+  border: none;
+  padding: 8px 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: 15px;
   font-size: 1.1em;
-  margin-bottom: 20px;
 }
 
-.hero-links a {
-  margin: 0 10px;
-  color: #fca311;
-  text-decoration: none;
-  font-weight: 600;
-  transition: 0.3s;
-}
-
-.hero-links a:hover {
-  color: #ffffff;
-}
-
-.btn {
-  background: #fca311;
-  color: #1b263b;
-  padding: 10px 20px;
-  border-radius: 5px;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.btn:hover {
-  background: #e0e1dd;
-}
-
+/* SECTIONS */
 section {
-  padding: 60px 12%;
+  padding: 60px 10%;
 }
 
 h2 {
-  font-size: 1.8em;
-  color: #14213d;
-  border-bottom: 3px solid #fca311;
+  color: var(--accent);
+  border-bottom: 2px solid var(--accent);
   display: inline-block;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
+/* PROJECT CARDS */
 .project-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -93,18 +98,69 @@ h2 {
 }
 
 .project-card {
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  border-radius: 12px;
   padding: 20px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px var(--shadow);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .project-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+  transform: translateY(-8px);
+  box-shadow: 0 8px 24px var(--accent);
 }
 
+/* TIMELINE */
+.timeline {
+  border-left: 3px solid var(--accent);
+  padding-left: 20px;
+}
+
+.timeline-item {
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.timeline-item::before {
+  content: "";
+  width: 14px;
+  height: 14px;
+  background: var(--accent);
+  border-radius: 50%;
+  position: absolute;
+  left: -9px;
+  top: 5px;
+}
+
+/* EDUCATION CARDS */
+.edu-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.edu-card {
+  flex: 1 1 250px;
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 10px var(--shadow);
+}
+
+/* CONTACT */
+.contact-icons a {
+  font-size: 2em;
+  color: var(--accent);
+  margin: 0 15px;
+  transition: 0.3s;
+}
+
+.contact-icons a:hover {
+  color: white;
+}
+
+/* FADE IN */
 .fade-in {
   opacity: 0;
   transform: translateY(40px);
@@ -116,10 +172,18 @@ h2 {
   transform: translateY(0);
 }
 
+/* LIGHT MODE */
+body.light {
+  --bg: #f3f4f6;
+  --text: #1b263b;
+  --card-bg: rgba(0, 0, 0, 0.05);
+  --shadow: rgba(0, 0, 0, 0.2);
+}
+
 footer {
   text-align: center;
-  padding: 20px;
-  background: #1b263b;
-  color: #e0e1dd;
+  padding: 30px 0;
+  background: #111;
+  color: var(--text);
   font-size: 0.9em;
 }
