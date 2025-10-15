@@ -1,121 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vineet Chadalavada | FPGA Security & Side-Channel Research</title>
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vineet Chadalavada | FPGA Security Research</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- ===== HEADER / HERO ===== -->
-  <header id="hero">
-    <div class="hero-content">
-      <div class="hero-photo">
-        <img src="images/vineet.jpg" alt="Vineet Chadalavada" />
-      </div>
-      <div class="hero-text">
-        <h1>Vineet Chadalavada</h1>
-        <p class="tagline">Ph.D. Student in FPGA Security & Side-Channel Analysis</p>
-        <div class="social-links">
-          <a href="mailto:chvineet10@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
-          <a href="https://www.linkedin.com/in/vineet-chadalavada-651210193" title="LinkedIn" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-          <a href="https://github.com/VineetChadalavada" title="GitHub" target="_blank"><i class="fa-brands fa-github"></i></a>
-        </div>
-        <button id="theme-toggle">🌙</button>
-      </div>
+  <!-- Hero Section -->
+  <section id="hero">
+    <img src="images/vineet.jpg" alt="Vineet Chadalavada" class="profile-pic">
+    <h1>Vineet Chadalavada</h1>
+    <p class="tagline">Ph.D. Student in FPGA Security & Side-Channel Analysis</p>
+    <div class="links">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
     </div>
-  </header>
+  </section>
 
-  <!-- ===== ABOUT ===== -->
-  <section id="about" class="fade-in">
+  <!-- About -->
+  <section id="about" class="content">
     <h2>About Me</h2>
     <p>
-      I'm a Ph.D. student at UNC Charlotte working on hardware security and FPGA-based side-channel attacks. 
-      My research focuses on DDR4 timing-based Prime+Probe attacks, Trusted Memory Access Monitors (TMAM), 
-      and ML-based classification of memory access patterns for real-time intrusion detection.
+      I'm a Ph.D. student in Electrical and Computer Engineering at UNC Charlotte.
+      My research focuses on side-channel attacks, FPGA-based memory timing analysis, and hardware security countermeasures.
+      I aim to build trustworthy reconfigurable systems resistant to timing and power-based information leakage.
     </p>
   </section>
 
-  <!-- ===== PROJECTS ===== -->
-  <section id="projects" class="fade-in">
-    <h2>Research Projects</h2>
+  <!-- Research -->
+  <section id="research" class="content">
+    <h2>Research Interests</h2>
+    <ul>
+      <li>Side-Channel Attacks and Timing-Based Vulnerabilities in FPGA Clouds</li>
+      <li>Trusted Memory Access Monitoring (TMAM) and Isolation Mechanisms</li>
+      <li>Machine Learning for Hardware Threat Detection</li>
+      <li>Dynamic Partial Reconfiguration and Secure Boot Architectures</li>
+    </ul>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="content">
+    <h2>Projects</h2>
     <div class="project-grid">
       <div class="project-card">
-        <h3>Prime+Probe Attack on DDR4</h3>
-        <p>Implemented a timing-based Prime+Probe attack on DDR4 memory using Alveo U250 FPGA, revealing inter-bank interference behavior in multi-tenant setups.</p>
+        <h3>Prime+Probe DDR4 Attack</h3>
+        <p>Implemented a DDR4 timing-based Prime+Probe attack on Alveo U250 to analyze memory access interference in multi-tenant FPGA systems.</p>
       </div>
       <div class="project-card">
         <h3>Trusted Memory Access Monitor (TMAM)</h3>
-        <p>Developed a real-time IP for detecting DRAM-based side-channel attacks by monitoring access burstiness and timing anomalies on FPGA shells.</p>
+        <p>Developed an FPGA IP to detect timing anomalies in DDR4-based systems and prevent side-channel leakage in real time.</p>
       </div>
       <div class="project-card">
         <h3>RO-PUF Secure Boot</h3>
-        <p>Built a Ring Oscillator PUF-based secure boot system on Zybo Z7, improving entropy and resistance to replay-based bitstream attacks.</p>
-      </div>
-      <div class="project-card">
-        <h3>AES Power Trace Analysis</h3>
-        <p>Captured and analyzed 20K power traces from CW305 Artix-7 FPGA using CNN and SVM models to predict AES key bytes with high accuracy.</p>
+        <p>Designed a Ring Oscillator PUF on Zybo Z7 to generate device-specific signatures for secure boot and dynamic reconfiguration.</p>
       </div>
     </div>
   </section>
 
-  <!-- ===== EXPERIENCE ===== -->
-  <section id="experience" class="fade-in">
+  <!-- Experience -->
+  <section id="experience" class="content">
     <h2>Experience</h2>
-    <div class="timeline">
-      <div class="timeline-item">
+    <div class="experience-list">
+      <div>
         <h3>Graduate Research Assistant</h3>
-        <p>UNC Charlotte (2023–Present)</p>
-        <p>Designed and evaluated FPGA-based side-channel analysis frameworks; published findings in hardware security conferences.</p>
+        <p>UNC Charlotte — 2023–Present</p>
+        <p>Conducting FPGA-based side-channel analysis and developing real-time monitoring frameworks for DDR4 memory timing leaks.</p>
       </div>
-      <div class="timeline-item">
+      <div>
         <h3>Graduate Teaching Assistant</h3>
-        <p>UNC Charlotte (2022–Present)</p>
-        <p>Taught courses including Computer Architecture and C++ Programming; developed RISC-V simulator and lab assignments.</p>
+        <p>UNC Charlotte — 2022–Present</p>
+        <p>Taught Computer Architecture and C++ Programming courses; designed labs for RISC-V and embedded systems.</p>
       </div>
-      <div class="timeline-item">
+      <div>
         <h3>SAP Associate Consultant</h3>
-        <p>Unilever (2020–2021)</p>
-        <p>Managed SAP system landscape operations, RF device integration, and change management for global enterprise clients.</p>
+        <p>Unilever — 2020–2021</p>
+        <p>Supported SAP application environments, handled RF device integration, and managed system updates for global clients.</p>
       </div>
     </div>
   </section>
 
-  <!-- ===== EDUCATION ===== -->
-  <section id="education" class="fade-in">
-    <h2>Education</h2>
-    <div class="edu-cards">
-      <div class="edu-card">
-        <h3>Ph.D., Electrical & Computer Engineering</h3>
-        <p>University of North Carolina at Charlotte (2023–2026)</p>
-      </div>
-      <div class="edu-card">
-        <h3>M.S., Computer Engineering</h3>
-        <p>University of North Carolina at Charlotte (2022–2023)</p>
-      </div>
-      <div class="edu-card">
-        <h3>B.E., Electrical & Electronics Engineering</h3>
-        <p>Sathyabama Institute of Science and Technology (2016–2020)</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== CONTACT ===== -->
-  <section id="contact" class="fade-in">
-    <h2>Get in Touch</h2>
-    <div class="contact-icons">
-      <a href="mailto:chvineet10@gmail.com"><i class="fa-solid fa-envelope"></i></a>
-      <a href="https://linkedin.com/in/vineet-chadalavada-651210193" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-      <a href="https://github.com/VineetChadalavada" target="_blank"><i class="fa-brands fa-github"></i></a>
-    </div>
+  <!-- Contact -->
+  <section id="contact" class="content">
+    <h2>Contact</h2>
+    <form action="https://formspree.io/f/mjkvjlop" method="POST" class="contact-form">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="_replyto" placeholder="Your Email" required>
+      <textarea name="message" rows="5" placeholder="Reason for contacting" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
   </section>
 
   <footer>
-    <p>© 2025 Vineet Chadalavada | Built with ❤️ using HTML, CSS & JS</p>
+    <p>© 2025 Vineet Chadalavada | Built with ❤️ using GitHub Pages</p>
   </footer>
-
-  <script src="https://kit.fontawesome.com/3e0cfd0e67.js" crossorigin="anonymous"></script>
 </body>
 </html>
